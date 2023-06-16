@@ -17,15 +17,15 @@ import java.util.Set;
 @Component
 public class Hive implements Entity {
 
-    private static final String HEADERS = "id;longitude;latitude;color;hiveType";
+    private static final String HEADERS = "id;longitude;latitude;temperature;humidity";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private double longitude;
     private double latitude;
-    private String color;
-    private String hiveType;
+    private double temperature;
+    private double humidity;
 
     @JsonIgnoreProperties("hive")
     @OneToMany(mappedBy = "hive", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -37,6 +37,6 @@ public class Hive implements Entity {
     }
 
     public final String toCSV() {
-        return id + ";" + longitude + ";" + latitude + ";" + color + ";" + hiveType;
+        return id + ";" + longitude + ";" + latitude + ";" + temperature + ";" + humidity;
     }
 }
