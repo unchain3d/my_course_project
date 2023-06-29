@@ -117,15 +117,4 @@ public class ColonyService {
         }
     }
 
-    public final List<? extends Entity> getFreeColonies() {
-        List<Colony> colonies = (List<Colony>) getColonies();
-        List<Colony> freeColonies = new LinkedList<>();
-        for (var colony : colonies) {
-            if (colony.getHiveId() == 0) {
-                freeColonies.add(colony);
-            }
-        }
-        return freeColonies;
-    }
-
 }

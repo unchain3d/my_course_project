@@ -33,11 +33,6 @@ public class ColonyController {
                 : colonyService.getColonyById(id);
     }
 
-    @GetMapping(path = "/free")
-    public final List<? extends Entity> getFreeColonies() {
-        return colonyService.getFreeColonies();
-    }
-
     @PostMapping(produces = {"application/json"})
     public final ResponseEntity<Colony> createColony(final @RequestBody Colony colony) {
         Colony createdColony = colonyService.createColony(colony);
